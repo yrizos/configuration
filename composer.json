@@ -1,0 +1,21 @@
+{
+    "name": "yrizos/configuration",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yannis Rizos",
+            "email": "yrizos@gmail.com",
+            "homepage": "https://github.com/yrizos/configuration"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "yrizos/bucket": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Configuration": "library/"
+        }
+    }
+}
