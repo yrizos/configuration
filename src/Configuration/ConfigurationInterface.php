@@ -1,12 +1,14 @@
 <?php
 
-namespace Configuration\Backend;
+namespace Configuration;
 
 use Bucket\Container\MagicArrayContainerInterface;
 
-interface BackendInterface extends MagicArrayContainerInterface
+interface ConfigurationInterface extends MagicArrayContainerInterface
 {
+    const DEFAULT_ENVIRONMENT = "development";
+
     public function setEnvironment($environment);
 
     public function getEnvironment();
-}
+} 
