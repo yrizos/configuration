@@ -14,9 +14,13 @@ abstract class AbstractFilesystem implements FilesystemInterface
 
     public function addPath($path)
     {
-        if (!file_exists($path)) throw new \InvalidArgumentException();
+        $paths   = [];
+        $pathEnv = $this->getEnvironmentPath($path);
 
-        $paths = [realpath($path), $this->getEnvironmentPath($path)];
+        if (file_exists($path)) $paths[] = realpath($path);
+        if (file_exists($pathEnv)) $paths[] = realpath($pathEnv);
+
+        if (empty($paths)) throw new \InvalidArgumentException();
 
         foreach ($paths as $path) {
             if (isset($this->paths[$path])) continue;
