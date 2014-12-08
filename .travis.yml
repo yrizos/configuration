@@ -10,7 +10,7 @@ install:
 
 before_script: mkdir -p build/logs
 
-script: phpunit --configuration ./tests/phpunit.xml --coverage-colver ./build/logs/clover.xml
+script: phpunit --configuration ./tests/phpunit.xml --coverage-clover ./build/logs/clover.xml
 
 after_success:
   - CODECLIMATE_REPO_TOKEN=d757c3a6ceccd8744059d708511b1dd60766691572c71374f9e9404ae09bf664 ./vendor/bin/test-reporter --stdout > codeclimate.json
