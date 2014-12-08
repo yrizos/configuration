@@ -3,11 +3,11 @@ language: php
 php:
   - 5.4
 
-install:
+install: 
   - composer self-update
   - composer install
-  - composer require codeclimate/php-test-reporter:dev-master
- 
+  - composer require codeclimage/php-test-reporter:dev-master
+
 before_script: mkdir -p build/logs
 
-script: phpunit --configuration ./tests/phpunit.xml --coverage-clover build/logs/clover.xml
+script: phpunit --configuration ./tests/phpunit.xml --coverage-colver ./build/logs/clover.xml
