@@ -11,10 +11,10 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->paths = [
-            __DIR__ . '/data/config.yml',
-            __DIR__ . '/data/config.ini',
-            __DIR__ . '/data/config.php',
-            __DIR__ . '/data/config.json',
+            __DIR__ . '/config/config.yml',
+            __DIR__ . '/config/config.ini',
+            __DIR__ . '/config/config.php',
+            __DIR__ . '/config/config.json',
         ];
     }
 
