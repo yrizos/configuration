@@ -22,7 +22,7 @@
     },
 
     "require-dev": {
-        "symfony/yaml": "3.0.*@dev"
+        "symfony/yaml": "dev-master"
     },
 
     "suggest": {
