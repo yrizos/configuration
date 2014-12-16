@@ -5,11 +5,9 @@ namespace Configuration;
 use Configuration\Parser\ParserInterface;
 use DataObject\DataObject;
 use DataObject\DataObjectInterface;
-use DataObject\DataObjectTrait;
 
 class Configuration extends DataObject implements DataObjectInterface
 {
-
     private $environment;
 
     public function __construct(array $paths, $environment = 'development')
