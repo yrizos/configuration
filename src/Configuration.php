@@ -3,13 +3,12 @@
 namespace Configuration;
 
 use Configuration\Parser\ParserInterface;
+use DataObject\DataObject;
 use DataObject\DataObjectInterface;
 use DataObject\DataObjectTrait;
 
-class Configuration implements DataObjectInterface
+class Configuration extends DataObject implements DataObjectInterface
 {
-
-    use DataObjectTrait;
 
     private $environment;
 
