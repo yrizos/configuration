@@ -11,27 +11,44 @@ class Configuration implements DataObjectInterface
 
     use DataObjectTrait;
 
+    /** @var string */
     private $environment;
 
+    /**
+     * @param array $paths
+     * @param string $environment
+     */
     public function __construct(array $paths, $environment = 'development')
     {
         $this->setEnvironment($environment);
         $this->setData(self::parse($paths, $this->getEnvironment()));
     }
 
+    /**
+     * @return string
+     */
     public function getEnvironment()
     {
         return $this->environment;
     }
 
+    /**
+     * @param string $environment
+     * @return $this
+     */
     public function setEnvironment($environment)
     {
-        $this->environment = empty($environment) ? false : trim(strval($environment));
+        $this->environment = is_string($environment) ? trim($environment) : null;
 
         return $this;
     }
 
-    public static function parse(array $paths, $environment = false)
+    /**
+     * @param array $paths
+     * @param string $environment
+     * @return array
+     */
+    public static function parse(array $paths, $environment = null)
     {
         $data = [];
         foreach ($paths as $path) {
@@ -43,7 +60,14 @@ class Configuration implements DataObjectInterface
         return $data;
     }
 
-    public static function parseFile($path, $environment = false)
+    /**
+     * @param $path
+     * @param string $environment
+     * @return array
+     * @throws \RuntimeException
+     * @throws \InvalidArgumentException
+     */
+    public static function parseFile($path, $environment = null)
     {
         if (!is_file($path) || !is_readable($path)) throw new \InvalidArgumentException('Path' . $path . ' is invalid.');
 
